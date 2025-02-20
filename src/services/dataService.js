@@ -98,40 +98,27 @@ export default class DataService {
             icon: 'progman_11', // Keeping the same icon (change if desired)
             externalLink: 'https://fakecrime.bio/gbucci' // Added external link
         },
+        {
+            id: 'contact',
+            name: 'Contact.txt',
+            icon: 'inetcfg_2301',
+            content: {
+                emailText: 'If you want to get in contact with me, just email me at ',
+                email: 'giovannib776@gmail.com',
+                socialText: 'Or you can reach out to me through social media:',
+                social: [
+                    {
+                        name: 'FaLinkedin',
+                        link: 'https://www.linkedin.com/in/giovanni-bucci-846aba188/',
+                    },
+                    {
+                        name: 'FaGithub',
+                        link: 'https://github.com/xqyet',
+                    }
+                ],
+            },
+        }
 
-      {
-        id: 'contact',
-        name: 'Contact.txt',
-        icon: 'inetcfg_2301',
-        content: {
-          emailText:
-            'If you want to get in contact with me, just email me at ',
-          email: 'giovannib776@gmail.com',
-          socialText: 'Or you can reach out to me through social media:',
-          social: [
-            {
-              name: 'FaLinkedin',
-              link: 'https://www.linkedin.com/in/insaf-khamzin-915237129/',
-            },
-            {
-              name: 'FaGithub',
-              link: 'https://github.com/InsafKhamzin',
-            },
-            {
-              name: 'FaInstagram',
-              link: 'https://www.instagram.com/insafikus/',
-            },
-            {
-              name: 'FaTwitter',
-              link: 'https://twitter.com/InsafKhamzin',
-            },
-            {
-              name: 'FaMedium',
-              link: 'https://medium.com/@hamzin730insaf',
-            },
-          ],
-        },
-      },
     ],
   };
 
