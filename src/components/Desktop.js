@@ -42,6 +42,32 @@ function Desktop() {
         toggleNotepad(true);
     };
 
+    const desktopStyle = {
+        backgroundImage: "url('/background.png')",
+        backgroundSize: "cover",
+        backgroundPosition: "center",
+        backgroundRepeat: "no-repeat",
+        width: "100vw",
+        height: "100vh",
+        position: "absolute",
+        top: 0,
+        left: 0
+    };
+
+    return (
+        <div style={desktopStyle}>
+            <Shortcuts openExplorer={openExlorer} />
+            {explorerOpened && (
+                <Explorer items={items} closeExplorer={closeExplorer} openNotepad={openNotepad} isMobile={isMobile} />
+            )}
+            {notepadOpened && (
+                <Notepad closeNotepad={closeNotepad} selectedItem={selectedItem} isMobile={isMobile} />
+            )}
+            <Player />
+        </div>
+    );
+
+
     return (
         <React.Fragment>
             <Shortcuts openExplorer={openExlorer} />

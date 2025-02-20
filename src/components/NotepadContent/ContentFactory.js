@@ -12,8 +12,22 @@ function ContentFactory({ id, isMobile }) {
 
     useEffect(() => {
         const file = data.getItem(id);
+
+        // Only update the "About" section, leave others unchanged
+        if (file && file.id === "about") {
+            file.content = {
+                paragraphs: [
+                    "I'm a recent economics graduate in Atlanta pursuing an MS in Data Science and Analytics! I also love coding and working with C#, Python, & JavaScript. Check out my work on GitHub.",
+                    "", // Space before the next paragraph
+                    "I like to build models for Excel, such as for dataset mapping or report building. I've been known to reinvent the wheel on multiple occasions.",
+                    "Projects that I enjoy working on the most in my free time are game development, music production in FL Studio, and my motorcycle."
+                ]
+            };
+        }
+
         setItem(file);
     }, [id, data]);
+
 
     if (item === null) {
         return (<div></div>);
@@ -33,7 +47,6 @@ function ContentFactory({ id, isMobile }) {
         default:
             return (<div></div>);
     }
-
 }
 
-export default ContentFactory
+export default ContentFactory;
