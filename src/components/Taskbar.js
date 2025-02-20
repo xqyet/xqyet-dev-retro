@@ -8,10 +8,10 @@ const Link = styled.a`
     color: inherit;
 `
 
-
 function Taskbar() {
-    const { projectRepo, react95Repo } = useContext(DataContext).getProjectInfo();
-    console.log(projectRepo, react95Repo)
+    const { react95Repo } = useContext(DataContext).getProjectInfo(); // Only keeping React95 repo
+    const projectRepo = "https://github.com/xqyet/gbucci-dev-retro"; // Updated Repo link
+
     return (
         <TaskBar
             list={
@@ -29,4 +29,4 @@ function Taskbar() {
     )
 }
 
-export default Taskbar
+export default Taskbar;

@@ -34,7 +34,7 @@ function File({ item, openNotepad }) {
 				<img
 					src="/discord.png"
 					alt="Discord"
-					width="40"
+					width="41"
 					height="32"
 					className="pointer"
 					onClick={handleClick}
