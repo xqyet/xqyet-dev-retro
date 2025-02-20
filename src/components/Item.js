@@ -12,8 +12,14 @@ const StyledItem = styled.div`
 	padding: 10px 0;
 `;
 
+// Allows independent margin adjustments for icons
+const StyledIconWrapper = styled.div`
+	margin-top: ${({ iconMarginTop }) => iconMarginTop || '0px'};
+`;
+
+// Allows independent margin adjustments for text
 const StyledSpan = styled.span`
-	margin-top: 5px;
+	margin-top: ${({ textMarginTop }) => textMarginTop || '5px'};
 `;
 
 function File({ item, openNotepad }) {
@@ -28,28 +34,41 @@ function File({ item, openNotepad }) {
 		}
 	};
 
+	// Define custom images with individual sizes and vertical adjustments
+	const customIcons = {
+		about: { src: "/globe.gif", width: 68, height: 68, iconMarginTop: '-10px', textMarginTop: '-5px' },
+		portfolio: { src: "/portfolio.png", width: 95, height: 75, iconMarginTop: '-12px', textMarginTop: '-11px' },
+		projects: { src: "/project.png", width: 95, height: 85, iconMarginTop: '-15px', textMarginTop: '-18px' },
+		contact: { src: "/mail.png", width: 95, height: 85, iconMarginTop: '-20px', textMarginTop: '-20px' },
+		discord: { src: "/discord.png", width: 41, height: 32, iconMarginTop: '12px', textMarginTop: '8px' }, // Default spacing
+	};
+
+	const customIcon = customIcons[id];
+
 	return (
 		<StyledItem>
-			{id === "discord" ? (  // If the item is Discord (formerly Skills), use discord.png
-				<img
-					src="/discord.png"
-					alt="Discord"
-					width="41"
-					height="32"
-					className="pointer"
-					onClick={handleClick}
-				/>
-			) : (
-				<Icon
-					name={icon}
-					className="pointer"
-					onClick={handleClick} // Use new click handler
-				/>
-			)}
-			<StyledSpan>{name}</StyledSpan>
+			{/* Use a custom image if it exists, otherwise use React95 icon */}
+			<StyledIconWrapper iconMarginTop={customIcon ? customIcon.iconMarginTop : '0px'}>
+				{customIcon ? (
+					<img
+						src={customIcon.src}
+						alt={name}
+						width={customIcon.width}
+						height={customIcon.height}
+						className="pointer"
+						onClick={handleClick}
+					/>
+				) : (
+					<Icon
+						name={icon}
+						className="pointer"
+						onClick={handleClick} // Use new click handler
+					/>
+				)}
+			</StyledIconWrapper>
+			<StyledSpan textMarginTop={customIcon ? customIcon.textMarginTop : '5px'}>{name}</StyledSpan>
 		</StyledItem>
 	);
 }
 
 export default File;
-
