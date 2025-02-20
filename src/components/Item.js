@@ -52,3 +52,4 @@ function File({ item, openNotepad }) {
 }
 
 export default File;
+
