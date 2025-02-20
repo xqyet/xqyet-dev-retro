@@ -47,3 +47,4 @@
     "@react95/icons": "2.13.4"
   }
 }
+// $env:NODE_OPTIONS="--openssl-legacy-provider"
