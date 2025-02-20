@@ -21,61 +21,58 @@ export default class DataService {
         name: 'Resume.txt',
         icon: 'notepad_2',
         content: {
-          resumeLink:
-            'https://docs.google.com/document/d/1c_fPwOf4zo-vkSWJiCkSyiH2SZECb6JSeOSmgniaeQY/export?format=pdf',
+            resumeLink: '/Resume_GiovanniBucci.pdf', // Local PDF file in public/
+
           workExperience: [
             {
-              jobTitle: 'Software Developer',
-              company: 'Ceridian - Dayforce Wallet',
-              location: 'Toronto',
-              period: 'AUG 2020 – PRESENT',
+              jobTitle: 'Room Control',
+              company: 'Northside Hospital',
+              location: 'Atlanta',
+              period: 'APRIL 2022 – PRESENT',
               accomplishments: [
-                'Building a unique on-demand pay application',
-                'Developed a gateway from scratch between the app and the bank for Canadian users',
-                'Brought Canadian part of application to general availability in 6 months',
-                'Increased the performance of existing app by applying code and database design best practices',
-                'Expanded the overall project’s unit tests coverage from 30% to 80%. Started applying integration tests',
-                'Technologies used: C#, JS, ASP.NET, SQL Server, Redis, Kafka, Azure',
+                'Designed and implemented a custom reporting model in C# to streamline report generation',
+                'Developed custom CPT mapping using dynamic reference files to improve billing accuracy ',
+                'Utilize Excel to build CMS regulatory reports and outpatient surgery schedule ',
+                'Ensure completion of all CMS regulatory documents for Medicare patients', 
               ],
             },
             {
-              jobTitle: 'Software Developer',
-              company: 'Webmoney',
-              location: 'Russia',
-              period: 'MAY 2017 – AUG 2019',
+              jobTitle: 'Data Analyst Intern',
+              company: 'Gain Servicing',
+              location: 'Atlanta',
+              period: 'AUG 2021 – DEC 2021',
               accomplishments: [
-                'Developed and maintained financial technology applications',
-                'Planned and executed a full software development life cycle (SDLC) for each assigned project',
-                'Successfully integrated virtual and prepaid card issuance which brought to the company more than 100000 users and increased revenue by 5%',
-                'Planned tasks for 5 developers for future sprints according to Scrum methodology',
-                'Technologies used: C#, ASP.NET Core, SQL Server, React.js, RESTful Web services, Docker, Redis',
+                'Create and modify validation rules, conditional statements, and payoff formulas within our Salesforce dev and prod environments',
+                'Perform QA work in our Dev/Staging portal to help push software updates. Involved regression testing in Excel with the developers to ensure that our portal software functioned as intended with code changes, updates, and improvements',
+                'utilize Jira software for bug treacking and project management for assignments in Salesforce and our portal software.',
+                'Participated in daily Scum meetings with the technology team',
+                'Technologies used: C#, ASP.NET Core, SQL Server,',
               ],
             },
             {
-              jobTitle: '.NET Developer',
-              company: 'Soft Universe Labs',
-              location: 'Russia',
+              jobTitle: 'Research Group Analyst - Bagwell Center for the Study of Markets and Economic Opportunity',
+              company: 'Academic',
+              location: 'Kennesaw State University',
               period: 'MAY 2016 – MAR 2017',
               accomplishments: [
-                'Developed CRM systems for different small-medium businesses',
-                'Reviewed applications in progress of development to ensure corporate development standards',
-                'Successfully planned, developed and tested modules for agricultural CRM which are used by 80% of farmers in Kazan, Russia',
-                'Technologies used: C#, ASP.NET, SQL Server, JQuery, Semantic UI',
+                'Created a price sensitivity model using C# to predict consumer behavior in response to price changes',
+                'Applied quantitative methods to assess market trends and provide actionable insights on pricing strategies for various products and services',
+                'Delivered data-driven recommendations to our TAs, enhancing our understanding of consumer price sensitivity and improving decision making in specified pricing policies',
               ],
             },
           ],
           education: [
             {
-              credit: 'Post-Graduate Database Application Development',
-              place: 'Seneca College, Canada, Toronto',
-              gpa: '3.9/4.0 GPA',
-              period: 'SEPT 2019 – APR 2020',
+              credit: 'Master of Science - Data Science and Analytics',
+              place: 'Kennesaw State University',
+              gpa: ' - /4.0 GPA',
+              period: 'AUG 2025 – DEC 2026',
             },
             {
-              credit: 'Bachelor in Software Engineering',
-              place: 'Kazan National Research Technical University, Russia',
-              gpa: '3.8/4.0 GPA',
-              period: 'SEPT 2014 – AUG 2018',
+              credit: 'Bachelor in Economics',
+              place: 'Kennesaw State University',
+              gpa: '3.2/4.0 GPA',
+              period: 'AUG 2020 – MAY 2025',
             },
           ],
         },
@@ -169,56 +166,13 @@ export default class DataService {
           ],
         },
       },
-      {
-        id: 'skills',
-        name: 'Skills.txt',
-        icon: 'progman_11',
-        content: {
-          hard: [
-            {
-              name: 'C# .NET',
-              progress: 100,
-            },
-            {
-              name: 'SQL Server',
-              progress: 100,
-            },
-            {
-              name: 'React/Redux',
-              progress: 90,
-            },
-            {
-              name: 'Node.js',
-              progress: 90,
-            },
-            {
-              name: 'Docker',
-              progress: 90,
-            },
-            {
-              name: 'MongoDB',
-              progress: 80,
-            },
-            {
-              name: 'Typescript',
-              progress: 70,
-            },
-            {
-              name: 'AWS/Azure',
-              progress: 70,
-            },
-            {
-              name: 'Kubernetes',
-              progress: 60,
-            },
-            {
-              name: 'Hadoop',
-              progress: 50,
-            },
-          ],
-          soft: 'Analytical thinking, Teamwork, Creative Problem solving, Mangement, Leadership, Entrepreneurship',
+        {
+            id: 'discord', // Renamed from 'skills'
+            name: 'Discord.txt', // Updated name
+            icon: 'progman_11', // Keeping the same icon (change if desired)
+            externalLink: 'https://fakecrime.bio/gbucci' // Added external link
         },
-      },
+
       {
         id: 'contact',
         name: 'Contact.txt',
@@ -255,9 +209,10 @@ export default class DataService {
     ],
   };
 
-  getItems() {
-    return this._data.items.map(({ id, name, icon }) => ({ id, name, icon }));
-  }
+    getItems() {
+        return this._data.items.map(({ id, name, icon, externalLink }) => ({ id, name, icon, externalLink }));
+    }
+
 
   getItem(id) {
     return this._data.items.find((x) => x.id === id);

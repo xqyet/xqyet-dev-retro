@@ -14,20 +14,30 @@ const StyledItem = styled.div`
 
 const StyledSpan = styled.span`
 	margin-top: 5px;
-`
+`;
 
 function File({ item, openNotepad }) {
-	const {name, icon } = item;
+	const { name, icon, externalLink } = item;
+
+	// Handle click: Redirect the current tab if externalLink exists, otherwise open Notepad
+	const handleClick = () => {
+		if (externalLink) {
+			window.location.href = externalLink; // Redirects in the same tab
+		} else {
+			openNotepad(item);
+		}
+	};
+
 	return (
 		<StyledItem>
 			<Icon
 				name={icon}
 				className="pointer"
-				onClick={() => openNotepad(item)}
+				onClick={handleClick} // Use new click handler
 			/>
 			<StyledSpan>{name}</StyledSpan>
 		</StyledItem>
-	)
+	);
 }
 
-export default File
+export default File;

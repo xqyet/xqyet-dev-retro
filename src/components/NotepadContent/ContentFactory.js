@@ -17,7 +17,7 @@ function ContentFactory({ id, isMobile }) {
         if (file && file.id === "about") {
             file.content = {
                 paragraphs: [
-                    "I'm a recent economics graduate in Atlanta pursuing an MS in Data Science and Analytics! I also love coding and working with C#, Python, & JavaScript. Check out my work on GitHub.",
+                    "I'm a recent economics graduate in Atlanta pursuing an MS in Data Science and Analytics! I also love coding and working with C#, Python, JS, ASP.NET, & SQL. Check out my work on GitHub.",
                     "", // Space before the next paragraph
                     "I like to build models for Excel, such as for dataset mapping or report building. I've been known to reinvent the wheel on multiple occasions.",
                     "Projects that I enjoy working on the most in my free time are game development, music production in FL Studio, and my motorcycle."
