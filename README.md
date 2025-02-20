@@ -1,5 +1,5 @@
-# Portfolio
-My portfolio website in old-school Windows95 style [insafkhamzin.com](https://insafkhamzin.com/)
+# gbucci.dev
+website in old-school Windows95 
 
 ## Credits
 * Website was built with [React](https://github.com/facebook/react)
