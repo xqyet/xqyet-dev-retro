@@ -25,42 +25,42 @@ export default class DataService {
                         {
                             title: 'CSV Reporting Model',
                             description: 'Reporting model that maps CPT codes based on ORD Procedures - includes interactive GUI and framework for API integration.',
-                            repoLink: 'https://github.com/your-repo-placeholder'
+                            repoLink: 'https://github.com/xqyet/NSH_ReportBuilder'
                         },
                         {
                             title: 'Price Sensitivity Model',
                             description: 'This project simulates a community of consumers, each with unique Price Sensitivity (PS) that affects their consumption behavior, wealth accumulation, and transaction volume.',
-                            repoLink: 'https://github.com/your-repo-placeholder'
+                            repoLink: 'https://github.com/xqyet/macroeconomic-PSModel'
                         },
                         {
                             title: 'Invoice Parser',
                             description: 'Streamlines the process of extracting invoice data such as invoice numbers, customer details, billing addresses, line items, and totals from PDF invoices.',
-                            repoLink: 'https://github.com/your-repo-placeholder'
+                            repoLink: 'https://github.com/xqyet/Invoice-Parser-Framework'
                         },
                         {
                             title: 'Sales Tax Model',
                             description: 'A real-time model that retrieves sales tax info based on zip-code.',
-                            repoLink: 'https://github.com/your-repo-placeholder'
+                            repoLink: 'https://github.com/xqyet/SalesTaxModel'
                         },
                         {
                             title: 'Infinite Seed-Phrase Randomizer',
                             description: 'Loops through a near infinite list of seed phrases until the correct one is found.',
-                            repoLink: 'https://github.com/your-repo-placeholder'
+                            repoLink: 'https://github.com/xqyet/Infinite-Seed-Phrase-Randomizer_BACKEND'
                         },
                         {
                             title: 'Blockchain Analytics Model',
                             description: 'A WPF application for analyzing wallet transactions using multiple APIs. The application allows users to input a wallet address, fetch transaction history, and view detailed transaction data.',
-                            repoLink: 'https://github.com/your-repo-placeholder'
+                            repoLink: 'https://github.com/xqyet/Transaction_Analytics'
                         },
                         {
                             title: 'Transaction Address Spoofer',
                             description: 'A C# WinForms application that generates target wallet addresses based on initial prefix and grabs from Ethereum transaction history.',
-                            repoLink: 'https://github.com/your-repo-placeholder'
+                            repoLink: 'https://github.com/xqyet/BlockchainAddressSpoofer'
                         },
                         {
                             title: 'Real-Time Caption Overlay',
                             description: 'A real-time captioning application that captures audio from your system and displays the live transcription as text overlays. This project utilizes Vosk\'s training model for speech recognition and NAudio for capturing audio input. All required NuGet packages are pre-installed, so no external dependencies needed! Clone-and-play.',
-                            repoLink: 'https://github.com/your-repo-placeholder'
+                            repoLink: 'https://github.com/xqyet/RealTimeCaptionOverlay'
                         }
                     ],
                 },
@@ -73,8 +73,8 @@ export default class DataService {
                 content: {
                     projects: [
                         {
-                            title: 'Coming Soon!',
-                            description: 'Stay tuned.'
+                            title: 'Coming Soon',
+                            description: 'in process.'
                         }
                     ],
                 },
