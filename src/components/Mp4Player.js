@@ -523,6 +523,15 @@ const shuffleArray = (array) => {
     return array.sort(() => Math.random() - 0.5);
 };
 
+
+// Styled Modal with a Red Top Bar
+const StyledModal = styled(Modal)`
+    .top-bar {
+        background: #FF0000 !important; /* YouTube Red */
+        color: white; /* White text */
+    }
+`;
+
 // Styled Components for Retro Controls
 const VideoContainer = styled.div`
     position: relative;
