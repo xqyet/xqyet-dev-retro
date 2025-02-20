@@ -36,9 +36,9 @@ function File({ item, openNotepad }) {
 
 	// Define custom images with individual sizes and vertical adjustments
 	const customIcons = {
-		about: { src: "/globe.gif", width: 68, height: 68, iconMarginTop: '-10px', textMarginTop: '-5px' },
-		portfolio: { src: "/portfolio.png", width: 95, height: 75, iconMarginTop: '-12px', textMarginTop: '-11px' },
-		projects: { src: "/project.png", width: 95, height: 85, iconMarginTop: '-15px', textMarginTop: '-18px' },
+		about: { src: "/globe.gif", width: 68, height: 68, iconMarginTop: '-5px', textMarginTop: '-10px' },
+		portfolio: { src: "/portfolio.png", width: 95, height: 75, iconMarginTop: '-9px', textMarginTop: '-13px' },
+		projects: { src: "/project.png", width: 95, height: 85, iconMarginTop: '-11px', textMarginTop: '-21px' },
 		contact: { src: "/mail.png", width: 95, height: 85, iconMarginTop: '-20px', textMarginTop: '-20px' },
 		discord: { src: "/discord.png", width: 41, height: 32, iconMarginTop: '12px', textMarginTop: '8px' }, // Default spacing
 	};
