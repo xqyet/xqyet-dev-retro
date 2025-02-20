@@ -77,98 +77,24 @@ export default class DataService {
           ],
         },
       },
-      {
-        id: 'projects',
-        name: 'Projects.txt',
-        icon: 'flying_through_space_100',
-        content: {
-          projects: [
-            {
-              title: 'Dayforce Wallet',
-              description:
-                'Dayforce Wallet is a modern way to pay employees that gives them access to their earned wages on demand. With Dayforce Wallet, you can collect your pay when you want, even the day of your shift.',
-              myRole:
-                'building a gateway between the app and the Canadian bank. Applying best code and database design practices to achieve high performance. Planning and implementing unit/integration tests.',
-              techStack:
-                'C#, ASP.NET Core, SQL Server, JS, Azure, Redis, Kafka',
-              url: 'https://www.dayforcewallet.com/',
+        {
+            id: 'projects', // Changed from 'projects'
+            name: 'Portfolio.web', // Changed from 'Projects.txt'
+            icon: 'flying_through_space_100',
+            content: {
+                projects: [
+                    {
+                        title: 'Coming Soon!',
+                        description: 'Stay tuned.'
+                    }
+                ],
             },
-            {
-              title: 'Cryptowealth',
-              description:
-                'Cryptowealth is an information site that tells the user how to invest in crypto with the lowest risks and the highest profit. You can choose the amount that you are ready to allocate per month, the level of risk - and you will be shown how much and what coin invest to. The whole purpose of this project is to show people that crypto is although an aggressive investment tool, but quite profitable if you have a clear strategy and a diversified portfolio.',
-              myRole: 'Co-Creator',
-              techStack: 'React',
-              url: 'https://cryptowealth.app/',
-              repo: 'https://github.com/dsych/crypto-advisor',
-            },
-            {
-              title: 'Cards.Webmoney',
-              description:
-                "Cards.Webmoney is a system for issuing and managing prepaid and virtual payment cards. Users can issue a payment card within few minutes, after that the card will be delivered on an address or provided right away if it's virtual. Cards.Webmoney is integrated with different payment processing systems such as WaveCrest, PaySpark, IntraPay.",
-              myRole:
-                "creating gateways between Cards.Webmoney and processing systems, developing and testing new features in the user's dashboard, maintaining and refactoring the existing functionality.",
-              techStack: 'C#, ASP.NET, SQL Server, JavaScript, TeamCity CI',
-              url: 'https://cards.web.money/en',
-            },
-            {
-              title: 'Guarantee.Money',
-              description:
-                'Guarantee.money is an escrow system that helps people to safely make a deal on the internet. The service acts as a trusted party in the transaction between the seller and the buyer. During the transaction period, the service expects confirmation from both participants about the completion or violation of conditions.',
-              myRole:
-                "designing, developing and testing core project's functions. Assigning tasks and planning future sprints for other developers. Integrating different payment methods such as payment cards, e-wallets, crypto.",
-              techStack:
-                'C#, ASP.NET, React/Redux, SQL Server, Dapper ORM, TeamCity CI',
-              url: 'https://guarantee.money/',
-            },
-            {
-              title: 'Platron.Pro',
-              description:
-                'Platron.Pro is a mass payout service for organizations. It provides a full range of direct gateways to integrated money transfer systems, credit organizations, mobile operators, etc.',
-              myRole: 'Integrating mass payouts to mobile operators.',
-              techStack: 'C#, ASP.NET, SQL Server, Entity Framework',
-              url: 'https://www.platron.pro',
-            },
-            {
-              title: 'JustOne Game',
-              description:
-                'JustOne is a word guessing game that is essentially a clone of the real JustOne game with the same ruleset and also has login/signup and real-time video chat features.',
-              techStack: 'MERN WebRTC Socket.io',
-              myRole:
-                'Implementing the Peer To Peer video conferencing using WebRTC and Socket.io. Building React UI components. Planning the gaming engine.',
-              url: 'https://play-just-one.herokuapp.com/',
-              repo: 'https://github.com/hatchways/team-coconut',
-            },
-            {
-              title: 'App Factory',
-              description:
-                "This project is supposed to be a constructor for building iOS/Android apps. Unfortunately, it didn't make it to MVP but you still could check the git repo. Be careful, it's not the prettiest code I've written...",
-              techStack: 'MERN',
-              myRole: 'Co-Creator. Implementing backend part.',
-              repo: 'https://github.com/InsafKhamzin/app-builder',
-            },
-            {
-              title: 'CryptoBot',
-              description:
-                'CryptoBot is a Telegram chatbot that provides updated info about every existing cryptocurrency.',
-              techStack: 'Node.js, Serverless, AWS S3, Telegram API',
-              myRole: 'Creator',
-              url: 'https://t.me/crypto_info1_bot',
-              repo: 'https://github.com/InsafKhamzin/crypto-info-bot',
-            },
-            {
-              title: 'My Portfolio Site',
-              description:
-                'My personal website in old-school Windows95 design.',
-              techStack: 'React, GitHub pages',
-              repo: 'https://github.com/InsafKhamzin/portfolio',
-            },
-          ],
         },
-      },
+
+
         {
             id: 'discord', // Renamed from 'skills'
-            name: 'Discord.txt', // Updated name
+            name: 'Discord.web', // Updated name
             icon: 'progman_11', // Keeping the same icon (change if desired)
             externalLink: 'https://fakecrime.bio/gbucci' // Added external link
         },
@@ -179,9 +105,9 @@ export default class DataService {
         icon: 'inetcfg_2301',
         content: {
           emailText:
-            'If you want to hire me or invite to a project, just email me on ',
-          email: 'khamzin.insaf@gmail.com',
-          socialText: 'Or you can reach me out through social media:',
+            'If you want to get in contact with me, just email me at ',
+          email: 'giovannib776@gmail.com',
+          socialText: 'Or you can reach out to me through social media:',
           social: [
             {
               name: 'FaLinkedin',

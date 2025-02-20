@@ -17,9 +17,9 @@ const StyledSpan = styled.span`
 `;
 
 function File({ item, openNotepad }) {
-	const { name, icon, externalLink } = item;
+	const { name, icon, externalLink, id } = item;
 
-	// Handle click: Redirect the current tab if externalLink exists, otherwise open Notepad
+	// Handle click: Redirect if external link exists, otherwise open Notepad
 	const handleClick = () => {
 		if (externalLink) {
 			window.location.href = externalLink; // Redirects in the same tab
@@ -30,11 +30,22 @@ function File({ item, openNotepad }) {
 
 	return (
 		<StyledItem>
-			<Icon
-				name={icon}
-				className="pointer"
-				onClick={handleClick} // Use new click handler
-			/>
+			{id === "discord" ? (  // If the item is Discord (formerly Skills), use discord.png
+				<img
+					src="/discord.png"
+					alt="Discord"
+					width="40"
+					height="32"
+					className="pointer"
+					onClick={handleClick}
+				/>
+			) : (
+				<Icon
+					name={icon}
+					className="pointer"
+					onClick={handleClick} // Use new click handler
+				/>
+			)}
 			<StyledSpan>{name}</StyledSpan>
 		</StyledItem>
 	);
