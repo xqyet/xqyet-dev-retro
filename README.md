@@ -1,5 +1,5 @@
 # gbucci.dev
-website in windows vista using react95 
+website emulating windows vista using react95 
 
 ## Credits
 * Website was built with [React](https://github.com/facebook/react)
