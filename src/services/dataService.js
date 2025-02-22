@@ -59,9 +59,16 @@ export default class DataService {
                         },
                         {
                             title: 'Real-Time Caption Overlay',
-                            description: 'A real-time captioning application that captures audio from your system and displays the live transcription as text overlays. This project utilizes Vosk\'s training model for speech recognition and NAudio for capturing audio input. All required NuGet packages are pre-installed, so no external dependencies needed! Clone-and-play.',
+                            description: 'A real-time captioning application that captures audio from your system and displays the live transcription as text overlays.',
                             repoLink: 'https://github.com/xqyet/RealTimeCaptionOverlay'
+                        },
+                        {
+                            title: 'Wallet Monitor',
+                            description: 'A whitehat blockchain tool designed to monitor compromised wallets for incoming transactions.',
+                            repoLink: 'https://github.com/xqyet/WalletMonitor'
                         }
+
+
                     ],
                 },
             },

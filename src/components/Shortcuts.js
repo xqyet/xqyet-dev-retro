@@ -7,8 +7,9 @@ import Mp4Player from './Mp4Player';
 // Remove-Item -Recurse -Force node_modules, package-lock.json
 // npm install
 // npm install webpack@4.42.0 --save-exact
-//$env:NODE_OPTIONS="--openssl-legacy-provider"
-//npm run build
+// $env:NODE_OPTIONS="--openssl-legacy-provider"
+// npm run build
+// http://127.0.0.1:3000/
 
 
 // Container for all shortcuts
