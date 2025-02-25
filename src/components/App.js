@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { GlobalStyle, ThemeProvider } from '@react95/core';
 import { createGlobalStyle } from 'styled-components';
 import DataService from '../services/dataService';
@@ -14,15 +14,22 @@ const BodyFontSizeOverride = createGlobalStyle`
   }
 `;
 
-const App = () => (
-  <DataContext.Provider value={dataService}>
-    <ThemeProvider>
-      <GlobalStyle />
-      <BodyFontSizeOverride />
+const App = () => {
+    // Global state to track open applications
+    const [openApps, setOpenApps] = useState({});
 
-      <Desktop />
-      <Taskbar />
-    </ThemeProvider>
-  </DataContext.Provider>
-);
+    return (
+        <DataContext.Provider value={dataService}>
+            <ThemeProvider>
+                <GlobalStyle />
+                <BodyFontSizeOverride />
+
+                {/* Pass openApps state to Desktop and Taskbar */}
+                <Desktop openApps={openApps} setOpenApps={setOpenApps} />
+                <Taskbar openApps={openApps} setOpenApps={setOpenApps} />
+            </ThemeProvider>
+        </DataContext.Provider>
+    );
+};
+
 export default App;

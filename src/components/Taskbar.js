@@ -1,16 +1,16 @@
-import React, { useContext } from 'react'
-import DataContext from '../contexts/dataContext'
-import { TaskBar, List } from '@react95/core'
-import styled from 'styled-components'
+import React, { useContext } from 'react';
+import DataContext from '../contexts/dataContext';
+import { TaskBar, List } from '@react95/core';
+import styled from 'styled-components';
 
 const Link = styled.a`
-    text-decoration: none;
-    color: inherit;
-`
+  text-decoration: none;
+  color: inherit;
+`;
 
-function Taskbar() {
-    const { react95Repo } = useContext(DataContext).getProjectInfo(); // Only keeping React95 repo
-    const projectRepo = "https://github.com/xqyet/gbucci-dev-retro"; // Updated Repo link
+function Taskbar({ openApps, setOpenApps }) {
+    const { react95Repo } = useContext(DataContext).getProjectInfo();
+    const projectRepo = "https://github.com/xqyet/gbucci-dev-retro";
 
     return (
         <TaskBar
@@ -25,8 +25,15 @@ function Taskbar() {
                     </List.Item>
                 </List>
             }
+            programs={
+                Object.keys(openApps).map((app) => (
+                    <List.Item key={app} className="pointer" icon="computer" onClick={() => setOpenApps(prev => ({ ...prev, [app]: !prev[app] }))}>
+                        {app}
+                    </List.Item>
+                ))
+            }
         />
-    )
+    );
 }
 
 export default Taskbar;
