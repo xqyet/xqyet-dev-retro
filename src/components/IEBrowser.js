@@ -33,7 +33,7 @@ const SearchInput = styled.input`
   font-size: 18px;
   margin-bottom: 15px;
   border: 1px solid #ccc;
-  color: ${({ hasText }) => (hasText ? "black" : "#999")}; /* Black if text, grey if empty */
+  color: black; /* Always black */
 `;
 
 const ButtonGroup = styled.div`
@@ -87,15 +87,15 @@ const TumbleIcon = styled.img`
 // Internet Explorer Component
 function IEBrowser({ closeBrowser }) {
     const defaultText = "Enter search or URL...";
-    const typingText = "https://xqyet.dev/friends"; // New web address
+    const typingText = "https://xqyet.dev/friends"; // Web address
 
     const [url, setUrl] = useState(""); // Stores the user's input URL
     const [displayUrl, setDisplayUrl] = useState(""); // Address bar content
-    const [searchQuery, setSearchQuery] = useState(typingText); // Default text in bottom search bar
+    const [searchQuery, setSearchQuery] = useState(""); // Default is empty (not restored)
     const [isHome, setIsHome] = useState(true); // Determines if we're on the home screen
-    const [hasText, setHasText] = useState(true); // Tracks if user has cleared the text
     const [typedText, setTypedText] = useState(""); // Stores the animated text
     const [isTyping, setIsTyping] = useState(true); // Controls animation on first open
+    const [hasUserCleared, setHasUserCleared] = useState(false); // Tracks if user cleared the text
 
     // Function to check if input is a URL or search term
     const processInput = (input) => {
@@ -114,6 +114,8 @@ function IEBrowser({ closeBrowser }) {
 
     // Typing animation effect when window is first opened
     useEffect(() => {
+        if (hasUserCleared) return; // Don't retype if user cleared
+
         let index = 0;
         setTypedText(""); // Reset before typing
 
@@ -129,7 +131,7 @@ function IEBrowser({ closeBrowser }) {
         }, 50); // Speed of typing animation
 
         return () => clearInterval(interval);
-    }, []);
+    }, [hasUserCleared]); // Only re-run if user hasn't cleared
 
     return (
         <Modal
@@ -174,8 +176,7 @@ function IEBrowser({ closeBrowser }) {
                                     setIsHome(true);
                                     setUrl("");
                                     setDisplayUrl("");
-                                    setSearchQuery(typingText); // Ensure typed text stays
-                                    setHasText(true);
+                                    setSearchQuery(hasUserCleared ? "" : typingText);
                                     setIsTyping(false);
                                 }}
                             >
@@ -197,22 +198,22 @@ function IEBrowser({ closeBrowser }) {
                             value={isTyping ? typedText : searchQuery}
                             onFocus={() => {
                                 if (isTyping) {
-                                    setIsTyping(false); // Stop animation when user interacts
+                                    setIsTyping(false);
                                 }
                             }}
                             onBlur={() => {
-                                if (searchQuery.trim() === "") {
-                                    setSearchQuery(typingText); // Keep final typed text
-                                    setHasText(true);
+                                if (searchQuery.trim() === "" && !hasUserCleared) {
+                                    setSearchQuery(typingText);
                                 }
                             }}
                             onChange={(e) => {
                                 setSearchQuery(e.target.value);
-                                setHasText(e.target.value !== "");
+                                if (e.target.value === "") {
+                                    setHasUserCleared(true);
+                                }
                             }}
                             onKeyDown={(e) => e.key === "Enter" && navigateTo(processInput(searchQuery))}
-                            placeholder={hasText ? "" : defaultText}
-                            hasText={hasText || isTyping}
+                            placeholder={searchQuery === "" ? defaultText : ""}
                         />
 
                         <ButtonContainer>
