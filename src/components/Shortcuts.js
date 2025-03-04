@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+﻿import React, { useState } from 'react';
 import styled from 'styled-components';
 import { startWebamp } from '../utils/startWebamp';
 import Mp4Player from './Mp4Player';
@@ -11,7 +11,7 @@ import IEBrowser from './IEBrowser'; // Import new component
 // npm install webpack @4.42.0 --save - exact
 // $env:NODE_OPTIONS="--openssl-legacy-provider"
 // npm run build
-// http://127.0.0.1:3000/
+// http://127.0.0.1:3001/
 
 
 // Container for all shortcuts

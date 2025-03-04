@@ -87,7 +87,7 @@ const TumbleIcon = styled.img`
 // Internet Explorer Component
 function IEBrowser({ closeBrowser }) {
     const defaultText = "Enter search or URL...";
-    const typingText = "https://xqyet.dev/friends"; // Web address
+    const typingText = "https://aniwave.se/home-anime"; // Web address
 
     const [url, setUrl] = useState(""); // Stores the user's input URL
     const [displayUrl, setDisplayUrl] = useState(""); // Address bar content
@@ -190,7 +190,7 @@ function IEBrowser({ closeBrowser }) {
                 {/* If on Home Page, Show Google UI */}
                 {isHome ? (
                     <BrowserContent>
-                        <img src="/google.png" alt="Google Logo" width="250" style={{ marginBottom: "40px" }} />
+                        <img src="/google.png" alt="Google Logo" width="300" style={{ marginBottom: "30px" }} />
 
                         {/* Bottom Search Bar with Typing Effect */}
                         <SearchInput
