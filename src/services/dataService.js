@@ -66,6 +66,12 @@ export default class DataService {
                             title: 'Wallet Monitor',
                             description: 'A whitehat blockchain tool designed to monitor compromised wallets for incoming transactions.',
                             repoLink: 'https://github.com/xqyet/WalletMonitor'
+                        },
+
+                        {
+                            title: 'PathSeeker',
+                            description: 'A reimagined and enhanced Minecraft utility mod. - active contributor and developer to PathSeeker, TrouserStreak, Jefff Mod add-ons',
+                            repoLink: 'https://faxhack.github.io/PathSeeker/'
                         }
 
 

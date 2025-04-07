@@ -2,7 +2,8 @@
 import styled from 'styled-components';
 import { startWebamp } from '../utils/startWebamp';
 import Mp4Player from './Mp4Player';
-import IEBrowser from './IEBrowser'; // Import new component
+import IEBrowser from './IEBrowser'; 
+import FriendsBrowser from './FriendsBrowser';
 
 //# BUILD PROCESS!
 
@@ -42,12 +43,22 @@ const customIcons = {
     explorer: { src: "/explorer.gif", width: 90, height: 90, iconTop: "-20px", textTop: "-34px" },
     music: { src: "/music.png", width: 47, height: 47, iconTop: "80px", textTop: "146px" },
     video: { src: "/mp4.png", width: 50, height: 47, iconTop: "-1px", textTop: "46px" },
+    friends: {
+        src: "/friends.png",
+        width: 90,
+        height: 90,
+        iconTop: "57px",
+        textTop: "70px",
+        iconLeft: "-19px" // 👈 This will nudge the icon to the left
+    },
     ie: { src: "/ie.png", width: 50, height: 50, iconTop: "-2px", textTop: "47px" } // New IE icon
 };
 
 function Shortcuts({ openExplorer }) {
     const [mp4Open, setMp4Open] = useState(false);
     const [ieOpen, setIeOpen] = useState(false);
+    const [friendsOpen, setFriendsOpen] = useState(false);
+
 
     return (
         <ShortcutsContainer>
@@ -90,6 +101,20 @@ function Shortcuts({ openExplorer }) {
                 <ShortcutText textLeft="3px" textTop={customIcons.video.textTop}>Video</ShortcutText>
             </ShortcutWrapper>
 
+            {/* Friends */}
+            <ShortcutWrapper left="75px" top={customIcons.friends.iconTop}>
+                <img
+                    src={customIcons.friends.src}
+                    alt="Friends"
+                    width={customIcons.friends.width}
+                    height={customIcons.friends.height}
+                    className="pointer"
+                    style={{ marginLeft: customIcons.friends.iconLeft || "0px" }}
+                    onClick={() => setFriendsOpen(true)}
+                />
+                <ShortcutText textLeft="3px" textTop={customIcons.friends.textTop}>Friends</ShortcutText>
+            </ShortcutWrapper>
+
             {/* Internet Explorer */}
             <ShortcutWrapper left="140px" top={customIcons.ie.iconTop}>
                 <img
@@ -103,11 +128,16 @@ function Shortcuts({ openExplorer }) {
                 <ShortcutText textLeft="3px" textTop={customIcons.ie.textTop}>Internet</ShortcutText>
             </ShortcutWrapper>
 
+
+
             {/* Video Player Modal */}
             {mp4Open && <Mp4Player closePlayer={() => setMp4Open(false)} />}
 
             {/* Internet Explorer Window */}
             {ieOpen && <IEBrowser closeBrowser={() => setIeOpen(false)} />}
+
+            {friendsOpen && <FriendsBrowser closeBrowser={() => setFriendsOpen(false)} />}
+
         </ShortcutsContainer>
     );
 }
