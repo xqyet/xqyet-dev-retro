@@ -1,4 +1,4 @@
-# gbucci.dev
+# xqyet.dev
 website emulating windows vista using react95 
 
 ## Credits
@@ -8,4 +8,4 @@ website emulating windows vista using react95
 * And thanks to [Insaf khamzin](https://github.com/InsafKhamzin) for adding WinAmp
 
 ## Preview
-![Screenshot](https://res.cloudinary.com/dnjuew3lw/image/upload/v1740081392/Screenshot_2025-02-20_145604_wwacby.png)
+![Screenshot](https://res.cloudinary.com/dnjuew3lw/image/upload/v1744053329/Screenshot_2025-02-20_145604_zwxgyj.png)
