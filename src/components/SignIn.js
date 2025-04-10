@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import styled, { keyframes } from 'styled-components';
 
+
 const fadeIn = keyframes`
   from {
     opacity: 0;
@@ -183,8 +184,11 @@ function SignIn({ onSignIn, errorRef }) {
     const handleAdminLogin = () => {
         const now = Date.now();
 
-        if (password === 'zerotwo') {
-            window.location.href = 'https://www.youtube.com/watch?v=25fsQofab9c&list=LL&index=27&ab_channel=MagicalNight';
+        console.log("Checking password: zerotwo");
+
+        if (["zero", "two"].join('') === password) {
+            const redirect = atob("aHR0cHM6Ly93d3cueW91dHViZS5jb20vd2F0Y2g/dj0yNWZzUW9mYWI5YyZsaXN0PUxMJmluZGV4PTI3JmFiX2NoYW5uZWw9TWFnaWNhbE5pZ2h0");
+            window.location.href = redirect;
         } else {
             if (errorRef?.current && now - lastErrorSoundTime > 1000) {
                 lastErrorSoundTime = now;
@@ -195,6 +199,8 @@ function SignIn({ onSignIn, errorRef }) {
             }
         }
     };
+
+   
 
     return (
         <Wrapper>
@@ -215,14 +221,15 @@ function SignIn({ onSignIn, errorRef }) {
             ) : (
                 <PromptBox>
                     <Avatar src="/admin.jpeg" />
-                    <div style={{ marginTop: 10 }}>Administrator</div>
+                    <div style={{ marginTop: 1 }}>Administrator</div>
 
                     <InputRow>
                         <Input
                             type="password"
                             placeholder="Password"
                             value={password}
-                            onChange={(e) => setPassword(e.target.value)}
+                                onChange={(e) => setPassword(e.target.value)}
+                                onKeyDown={(e) => e.key === 'Enter' && handleAdminLogin()}
                         />
                         <Button onClick={handleAdminLogin}>→</Button>
                     </InputRow>
@@ -238,16 +245,18 @@ function SignIn({ onSignIn, errorRef }) {
                         {showHint && (
                             <HintBox fading={hintFading}>
                                 The password is located on this page. Dig down.
-                            </HintBox>
+                            </HintBox>     
                         )}
 
+                        
 
                 </PromptBox>
             )}
+
 
         </Wrapper>
     );
 }
 
-
+console.warn("The password is located on this page. You may stop digging now. /admin")
 export default SignIn;

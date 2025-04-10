@@ -4,6 +4,10 @@ import { startWebamp } from '../utils/startWebamp';
 import Mp4Player from './Mp4Player';
 import IEBrowser from './IEBrowser'; 
 import FriendsBrowser from './FriendsBrowser';
+import ChatApp from './ChatApp';
+import AmongUsWindow from './AmongUs';
+import DinoWindow from './Dino';
+
 
 //# BUILD PROCESS!
 
@@ -44,7 +48,7 @@ const ShortcutText = styled.div`
 const customIcons = {
     explorer: { src: "/explorer.gif", width: 90, height: 90, iconTop: "-20px", textTop: "-34px" },
     music: { src: "/music.png", width: 47, height: 47, iconTop: "80px", textTop: "146px" },
-    video: { src: "/mp4.png", width: 50, height: 47, iconTop: "-1px", textTop: "46px" },
+    video: { src: "/mp4.png", width: 60, height: 47, iconTop: "-1px", textTop: "46px" },
     friends: {
         src: "/friends.png",
         width: 90,
@@ -53,13 +57,38 @@ const customIcons = {
         textTop: "70px",
         iconLeft: "-19px" 
     },
-    ie: { src: "/ie.png", width: 50, height: 50, iconTop: "-2px", textTop: "47px" } // new IE icon
+    ie: { src: "/ie.png", width: 50, height: 50, iconTop: "-2px", textTop: "47px" }, // new IE icon
+    chat: { src: "/notes.png", width: 85, height: 84, iconTop: "140px", textTop: "65px" },
+   amongus: {
+        src: "/amongus.png",
+        width: 70,
+        height: 70,
+        iconTop: "795px",
+        textTop: "70px",
+        iconLeft: "1820px",
+        textLeft: "-115sx"
+    },
+    dino: {
+        src: "/dino.png",         
+        width: 80,
+        height: 90,
+        iconTop: "785px",
+        textTop: "80px",
+        iconLeft: "1715px",
+        textLeft: "0px"
+    }
+
 };
 
 function Shortcuts({ openExplorer }) {
     const [mp4Open, setMp4Open] = useState(false);
     const [ieOpen, setIeOpen] = useState(false);
     const [friendsOpen, setFriendsOpen] = useState(false);
+    const [chatOpen, setChatOpen] = useState(false);
+    const [amongUsOpen, setAmongUsOpen] = useState(false);
+    const [dinoOpen, setDinoOpen] = useState(false);
+
+    
 
 
     return (
@@ -129,6 +158,52 @@ function Shortcuts({ openExplorer }) {
                 />
                 <ShortcutText textLeft="3px" textTop={customIcons.ie.textTop}>Internet</ShortcutText>
             </ShortcutWrapper>
+
+            {/* Chat */}
+            <ShortcutWrapper left="-15px" top={customIcons.chat.iconTop}>
+                <img
+                    src={customIcons.chat.src}
+                    alt="Chat"
+                    width={customIcons.chat.width}
+                    height={customIcons.chat.height}
+                    className="pointer"
+                    onClick={() => setChatOpen(true)}
+                />
+                <ShortcutText textLeft="34px" textTop={customIcons.chat.textTop}>Chat</ShortcutText>
+            </ShortcutWrapper>
+            {chatOpen && <ChatApp close={() => setChatOpen(false)} />}
+            <ShortcutWrapper left={customIcons.amongus.iconLeft} top={customIcons.amongus.iconTop}>
+                <img
+                    src={customIcons.amongus.src}
+                    alt="Among Us"
+                    width={customIcons.amongus.width}
+                    height={customIcons.amongus.height}
+                    className="pointer"
+                    onClick={() => setAmongUsOpen(true)}
+                />
+                <ShortcutText
+                    textLeft="84" textop={customIcons.amongus.textLeft}
+                    textTop={customIcons.amongus.textTop}
+                >
+                    Among Us
+                </ShortcutText>
+            </ShortcutWrapper>
+            {amongUsOpen && <AmongUsWindow close={() => setAmongUsOpen(false)} />}
+            {dinoOpen && <DinoWindow close={() => setDinoOpen(false)} />}
+            <ShortcutWrapper left={customIcons.dino.iconLeft} top={customIcons.dino.iconTop}>
+                <img
+                    src={customIcons.dino.src}
+                    alt="Dino"
+                    width={customIcons.dino.width}
+                    height={customIcons.dino.height}
+                    className="pointer"
+                    onClick={() => setDinoOpen(true)}
+                />
+                <ShortcutText textLeft={customIcons.dino.textLeft} textTop={customIcons.dino.textTop}>
+                    Chrome Dino
+                </ShortcutText>
+            </ShortcutWrapper>
+
 
 
 
