@@ -15,30 +15,32 @@ import FriendsBrowser from './FriendsBrowser';
 // http://127.0.0.1:3001/
 
 
-// Container for all shortcuts
+// container for all shortcuts
 const ShortcutsContainer = styled.div`
     position: relative;
     margin-left: 20px;
     margin-top: 20px;
 `;
 
-// Individual shortcut container
+// individual shortcut container
 const ShortcutWrapper = styled.div`
     position: absolute;
     left: ${({ left }) => left || "0px"};
     top: ${({ top }) => top || "0px"};
 `;
 
-// Text label styling
+// text label styling
 const ShortcutText = styled.div`
-    position: absolute;
-    left: ${({ textLeft }) => textLeft || "0px"};
-    top: ${({ textTop }) => textTop || "0px"};
-    font-size: 14px;
-    text-align: center;
+  position: absolute;
+  left: ${({ textLeft }) => textLeft || "0px"};
+  top: ${({ textTop }) => textTop || "0px"};
+  font-size: 14px;
+  text-align: center;
+  color: grey; 
 `;
 
-// Custom icons
+
+// custom icons
 const customIcons = {
     explorer: { src: "/explorer.gif", width: 90, height: 90, iconTop: "-20px", textTop: "-34px" },
     music: { src: "/music.png", width: 47, height: 47, iconTop: "80px", textTop: "146px" },
@@ -49,9 +51,9 @@ const customIcons = {
         height: 90,
         iconTop: "57px",
         textTop: "70px",
-        iconLeft: "-19px" // 👈 This will nudge the icon to the left
+        iconLeft: "-19px" 
     },
-    ie: { src: "/ie.png", width: 50, height: 50, iconTop: "-2px", textTop: "47px" } // New IE icon
+    ie: { src: "/ie.png", width: 50, height: 50, iconTop: "-2px", textTop: "47px" } // new IE icon
 };
 
 function Shortcuts({ openExplorer }) {

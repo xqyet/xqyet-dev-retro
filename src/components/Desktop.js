@@ -43,7 +43,7 @@ function Desktop() {
     };
 
     const desktopStyle = {
-        backgroundImage: "url('/background.png')",
+        backgroundImage: "url('/dark_vista.jpg')",
         backgroundSize: "cover",
         backgroundPosition: "center",
         backgroundRepeat: "no-repeat",
