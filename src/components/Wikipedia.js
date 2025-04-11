@@ -49,7 +49,7 @@ const WikipediaWindow = ({ close }) => {
     const [position, setPosition] = useState({ top: 100, left: 100 });
 
     useEffect(() => {
-        // center the window once on first render
+        
         const width = 800;
         const height = 500;
         setPosition({
