@@ -8,12 +8,17 @@ const BootScreenWrapper = styled.div`
   height: 100vh;
   background: url('/cmd_vista.jpg') no-repeat center center fixed;
   background-size: cover;
-  color:white;
+  color: white;
   font-family: 'Courier New', Courier, monospace;
   z-index: 9999;
   display: ${({ visible }) => (visible ? 'flex' : 'none')};
   align-items: center;
   justify-content: center;
+
+  @media (max-width: 768px) {
+    background-size: 200%; /* slightly zoomed-in for mobile */
+    background-position: center;
+  }
 `;
 
 const TerminalText = styled.pre`
@@ -36,6 +41,18 @@ const TerminalText = styled.pre`
 
   @keyframes blink {
     50% { opacity: 0; }
+  }
+
+   @media (max-width: 768px) {
+    font-size: 9px;        
+    margin-top: 0;
+    margin-left: -105px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    max-width: 90vw;         
+    padding: 10px;           
   }
 `;
 

@@ -17,7 +17,7 @@ import WikipediaWindow from './Wikipedia';
 // npm install webpack @4.42.0 --save - exact
 // $env:NODE_OPTIONS="--openssl-legacy-provider"
 // npm run build
-// http://127.0.0.1:3001/
+// http://127.0.0.1:3000/
 
 
 // container for all shortcuts
