@@ -10,11 +10,28 @@ import SignIn from './SignIn';
 
 const dataService = new DataService();
 
-const BodyFontSizeOverride = createGlobalStyle`
-  body{
-    font-size: 15px
+const GlobalReset = createGlobalStyle`
+  body {
+    background-color: black !important;
   }
 `;
+
+const BodyFontSizeOverride = createGlobalStyle`
+  html, body, #root {
+    font-size: 15px;
+    background-color: black !important;
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    width: 100%;
+  }
+`;
+
+fetch('/admin.json')
+    .then(res => res.json())
+    .then(data => {
+        console.log(data.message);
+    });
 
 const App = () => {
   const [openApps, setOpenApps] = useState({});

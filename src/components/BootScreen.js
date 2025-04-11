@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useRef } from 'react';
+﻿import React, { useEffect, useState, useRef } from 'react';
 import styled from 'styled-components';
 
 const BootScreenWrapper = styled.div`
@@ -6,9 +6,9 @@ const BootScreenWrapper = styled.div`
   top: 0; left: 0;
   width: 100vw;
   height: 100vh;
-  background: url('/dark_vista.jpg') no-repeat center center fixed;
+  background: url('/cmd_vista.jpg') no-repeat center center fixed;
   background-size: cover;
-  color: white;
+  color:white;
   font-family: 'Courier New', Courier, monospace;
   z-index: 9999;
   display: ${({ visible }) => (visible ? 'flex' : 'none')};
@@ -21,10 +21,16 @@ const TerminalText = styled.pre`
   white-space: pre-wrap;
   text-align: left;
   max-width: 80vw;
+  height: 300px;
+  overflow: hidden;
   padding: 20px;
+  margin-top: -185px;
+  margin-left: -645px;
+  color: #a1a1a1;
+  font-family: 'Consolas', 'Courier New', monospace;
 
-  &:after {
-    content: '_';
+  .cursor {
+    display: inline-block;
     animation: blink 1s steps(1) infinite;
   }
 
@@ -32,6 +38,8 @@ const TerminalText = styled.pre`
     50% { opacity: 0; }
   }
 `;
+
+
 
 function getOperatingSystem() {
   const ua = navigator.userAgent;
@@ -62,7 +70,7 @@ function BootScreen({ onComplete }) {
     'IP: Loading...',
     `System: ${getOperatingSystem()}`,
     'Bio Loaded',
-    'Please Boot the Machine...'
+    'Press Enter... '
   ]);
 
   const close = () => {
@@ -97,31 +105,49 @@ function BootScreen({ onComplete }) {
     };
   }, []);
 
-  const startTyping = (lines) => {
-    let lineIndex = 0;
-    let charIndex = 0;
+    const PROMPT = 'C:\\Users\\xqyet> ';
 
-    function typeChar() {
-      if (lineIndex >= lines.length) return;
-      const currentLine = lines[lineIndex];
-      if (charIndex < currentLine.length) {
-        setOutput(prev => prev + currentLine.charAt(charIndex));
-        charIndex++;
-        setTimeout(typeChar, 30);
-      } else {
-        setOutput(prev => prev + '\n');
-        lineIndex++;
-        charIndex = 0;
-        setTimeout(typeChar, 400);
-      }
-    }
+    const startTyping = (lines) => {
+        let lineIndex = 0;
+        let charIndex = 0;
 
-    typeChar();
-  };
+        const fullLines = [
+            { prefix: PROMPT, content: 'netstat' },
+            ...lines.map(line => ({ prefix: '', content: line }))
+        ];
+
+        function typeChar() {
+            if (lineIndex >= fullLines.length) return;
+
+            const { prefix, content } = fullLines[lineIndex];
+
+            if (charIndex === 0 && prefix) {
+                setOutput(prev => prev + prefix);
+            }
+
+            if (charIndex < content.length) {
+                setOutput(prev => prev + content.charAt(charIndex));
+                charIndex++;
+                setTimeout(typeChar, 30);
+            } else {
+                setOutput(prev => prev + '\n');
+                lineIndex++;
+                charIndex = 0;
+                setTimeout(typeChar, 400);
+            }
+        }
+
+        typeChar();
+    };
+
+
 
   return (
     <BootScreenWrapper visible={visible}>
-      <TerminalText>{output}</TerminalText>
+          <TerminalText>
+              {output}
+              <span className="cursor">_</span>
+          </TerminalText>
     </BootScreenWrapper>
   );
 }

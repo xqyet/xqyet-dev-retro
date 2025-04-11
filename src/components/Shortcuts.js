@@ -7,6 +7,7 @@ import FriendsBrowser from './FriendsBrowser';
 import ChatApp from './ChatApp';
 import AmongUsWindow from './AmongUs';
 import DinoWindow from './Dino';
+import WikipediaWindow from './Wikipedia';
 
 
 //# BUILD PROCESS!
@@ -76,6 +77,15 @@ const customIcons = {
         textTop: "80px",
         iconLeft: "1715px",
         textLeft: "0px"
+    },
+    bebop: {
+        src: "/wikipedia.png",
+        width: 110,
+        height: 83,
+        iconTop: "690px",      
+        textTop: "80px",
+        iconLeft: "1790px",      
+        textLeft: "26px"
     }
 
 };
@@ -87,6 +97,7 @@ function Shortcuts({ openExplorer }) {
     const [chatOpen, setChatOpen] = useState(false);
     const [amongUsOpen, setAmongUsOpen] = useState(false);
     const [dinoOpen, setDinoOpen] = useState(false);
+    const [bebopOpen, setBebopOpen] = useState(false);
 
     
 
@@ -203,6 +214,25 @@ function Shortcuts({ openExplorer }) {
                     Chrome Dino
                 </ShortcutText>
             </ShortcutWrapper>
+            <ShortcutWrapper left={customIcons.bebop.iconLeft} top={customIcons.bebop.iconTop}>
+                <img
+                    src={customIcons.bebop.src}
+                    alt="Wikipedia"
+
+                    width={customIcons.bebop.width}
+                    height={customIcons.bebop.height}
+                    className="pointer"
+                    onClick={() => setBebopOpen(true)}
+                />
+                <ShortcutText
+                    textLeft={customIcons.bebop.textLeft}
+                    textTop={customIcons.bebop.textTop}
+                >
+                    Wikipedia
+                </ShortcutText>
+
+            </ShortcutWrapper>
+            {bebopOpen && <WikipediaWindow close={() => setBebopOpen(false)} />}
 
 
 

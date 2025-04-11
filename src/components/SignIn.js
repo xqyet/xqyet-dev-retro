@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import styled, { keyframes } from 'styled-components';
+import { DARLING, IMPORT_OBFUSCATION } from './AmongUs';
 
 
 const fadeIn = keyframes`
@@ -184,11 +185,8 @@ function SignIn({ onSignIn, errorRef }) {
     const handleAdminLogin = () => {
         const now = Date.now();
 
-        console.log("Checking password: zerotwo");
-
-        if (["zero", "two"].join('') === password) {
-            const redirect = atob("aHR0cHM6Ly93d3cueW91dHViZS5jb20vd2F0Y2g/dj0yNWZzUW9mYWI5YyZsaXN0PUxMJmluZGV4PTI3JmFiX2NoYW5uZWw9TWFnaWNhbE5pZ2h0");
-            window.location.href = redirect;
+        if (password === DARLING) {
+            window.location.href = IMPORT_OBFUSCATION;
         } else {
             if (errorRef?.current && now - lastErrorSoundTime > 1000) {
                 lastErrorSoundTime = now;
@@ -258,5 +256,5 @@ function SignIn({ onSignIn, errorRef }) {
     );
 }
 
-console.warn("The password is located on this page. You may stop digging now. /admin")
+export const THE_REAL_PASSWORD_IS = "NOT_HERE";
 export default SignIn;

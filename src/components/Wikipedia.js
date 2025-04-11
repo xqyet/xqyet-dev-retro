@@ -1,13 +1,13 @@
-import React, { useRef } from 'react';
+﻿import React, { useRef, useEffect, useState } from 'react';
 import styled from 'styled-components';
 
 const WindowWrapper = styled.div`
-  position: absolute;
-  top: 100px;
-  left: 100px;
-  width: 1000px;
-  height: 600px;
+  position: fixed;
   background: #000;
+  width: 650px;
+  height: 700px;
+  top: ${({ top }) => top}px;
+  left: ${({ left }) => left}px;
   border: 2px solid #444;
   border-radius: 6px;
   overflow: hidden;
@@ -43,24 +43,35 @@ const Iframe = styled.iframe`
   border: none;
 `;
 
-const AmongUsWindow = ({ close }) => {
+const WikipediaWindow = ({ close }) => {
     const windowRef = useRef(null);
     const offset = useRef({ x: 0, y: 0 });
+    const [position, setPosition] = useState({ top: 100, left: 100 });
+
+    useEffect(() => {
+        // center the window once on first render
+        const width = 800;
+        const height = 500;
+        setPosition({
+            top: window.innerHeight / 2 - height / 2,
+            left: window.innerWidth / 2 - width / 2
+        });
+    }, []);
 
     const handleMouseDown = (e) => {
-        const el = windowRef.current;
         offset.current = {
-            x: e.clientX - el.offsetLeft,
-            y: e.clientY - el.offsetTop,
+            x: e.clientX - position.left,
+            y: e.clientY - position.top,
         };
         document.addEventListener('mousemove', handleMouseMove);
         document.addEventListener('mouseup', handleMouseUp);
     };
 
     const handleMouseMove = (e) => {
-        const el = windowRef.current;
-        el.style.left = `${e.clientX - offset.current.x}px`;
-        el.style.top = `${e.clientY - offset.current.y}px`;
+        setPosition({
+            top: e.clientY - offset.current.y,
+            left: e.clientX - offset.current.x,
+        });
     };
 
     const handleMouseUp = () => {
@@ -69,19 +80,17 @@ const AmongUsWindow = ({ close }) => {
     };
 
     return (
-        <WindowWrapper ref={windowRef}>
+        <WindowWrapper ref={windowRef} top={position.top} left={position.left}>
             <Header onMouseDown={handleMouseDown}>
-                Among Us
+                Cowboy Bebop - Wikipedia
                 <CloseButton onClick={close}>X</CloseButton>
             </Header>
             <Iframe
-                src="https://nb-ga.github.io/games-site/projects/among-us/index.html"
-                title="Among Us"
+                src="https://en.wikipedia.org/wiki/Cowboy_Bebop"
+                title="Cowboy Bebop Wikipedia"
             />
         </WindowWrapper>
     );
 };
 
-export const DARLING = ["zero", "two"].join(''); 
-export const IMPORT_OBFUSCATION = atob("aHR0cHM6Ly93d3cueW91dHViZS5jb20vd2F0Y2g/dj0yNWZzUW9mYWI5YyZsaXN0PUxMJmluZGV4PTI3JmFiX2NoYW5uZWw9TWFnaWNhbE5pZ2h0");
-export default AmongUsWindow;
+export default WikipediaWindow;
