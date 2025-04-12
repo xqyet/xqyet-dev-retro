@@ -22,54 +22,59 @@ export default class DataService {
                     projects: [
                         {
                             title: 'CSV Reporting Model',
-                            description: 'Reporting model that maps CPT codes based on ORD Procedures - includes interactive GUI and framework for API integration.',
+                            description: 'a reporting model that maps CPT codes based on ORD Procedures - includes interactive GUI and framework for API integration.',
                             repoLink: 'https://github.com/xqyet/NSH_ReportBuilder'
                         },
                         {
                             title: 'Price Sensitivity Model',
-                            description: 'This project simulates a community of consumers, each with unique Price Sensitivity (PS) that affects their consumption behavior, wealth accumulation, and transaction volume.',
+                            description: 'this project simulates a community of consumers, each with unique Price Sensitivity (PS) that affects their consumption behavior, wealth accumulation, and transaction volume.',
                             repoLink: 'https://github.com/xqyet/macroeconomic-PSModel'
                         },
                         {
                             title: 'Invoice Parser',
-                            description: 'Streamlines the process of extracting invoice data such as invoice numbers, customer details, billing addresses, line items, and totals from PDF invoices.',
+                            description: 'streamlines the process of extracting invoice data such as invoice numbers, customer details, billing addresses, line items, and totals from PDF invoices.',
                             repoLink: 'https://github.com/xqyet/Invoice-Parser-Framework'
                         },
                         {
                             title: 'Sales Tax Model',
-                            description: 'A real-time model that retrieves sales tax info based on zip-code.',
+                            description: 'a real-time model that retrieves sales tax info based on zip-code.',
                             repoLink: 'https://github.com/xqyet/SalesTaxModel'
                         },
                         {
                             title: 'Infinite Seed-Phrase Randomizer',
-                            description: 'Loops through a near infinite list of seed phrases until the correct one is found.',
+                            description: 'loops through a near infinite list of seed phrases until the correct one is found.',
                             repoLink: 'https://github.com/xqyet/Infinite-Seed-Phrase-Randomizer_BACKEND'
                         },
                         {
                             title: 'Blockchain Analytics Model',
-                            description: 'A WPF application for analyzing wallet transactions using multiple APIs. The application allows users to input a wallet address, fetch transaction history, and view detailed transaction data.',
+                            description: 'a WPF application for analyzing wallet transactions using multiple APIs. The application allows users to input a wallet address, fetch transaction history, and view detailed transaction data.',
                             repoLink: 'https://github.com/xqyet/Transaction_Analytics'
                         },
                         {
                             title: 'Transaction Address Spoofer',
-                            description: 'A C# WinForms application that generates target wallet addresses based on initial prefix and grabs from Ethereum transaction history.',
+                            description: 'a C# WinForms application that generates target wallet addresses based on initial prefix and grabs from Ethereum transaction history.',
                             repoLink: 'https://github.com/xqyet/BlockchainAddressSpoofer'
                         },
                         {
                             title: 'Real-Time Caption Overlay',
-                            description: 'A real-time captioning application that captures audio from your system and displays the live transcription as text overlays.',
+                            description: 'a real-time captioning application that captures audio from your system and displays the live transcription as text overlays.',
                             repoLink: 'https://github.com/xqyet/RealTimeCaptionOverlay'
                         },
                         {
                             title: 'Wallet Monitor',
-                            description: 'A whitehat blockchain tool designed to monitor compromised wallets for incoming transactions.',
+                            description: 'a whitehat blockchain tool designed to monitor compromised wallets for incoming transactions.',
                             repoLink: 'https://github.com/xqyet/WalletMonitor'
                         },
 
                         {
                             title: 'PathSeeker',
-                            description: 'A reimagined and enhanced Minecraft utility mod. - active contributor and developer to PathSeeker, TrouserStreak, Jefff Mod add-ons',
+                            description: 'a reimagined and enhanced Minecraft utility mod. - active contributor and developer to PathSeeker, TrouserStreak, Jefff Mod add-ons',
                             repoLink: 'https://faxhack.github.io/PathSeeker/'
+                        },
+                        {
+                            title: 'NullTrace Utility Add-On',
+                            description: 'a 6b6t focused meteor add-on created primarily for basehunting modules and automating trail following in the Overworld, Nether, and End dimensions. ',
+                            repoLink: 'https://github.com/xqyet/NullTrace/'
                         }
 
 
@@ -79,13 +84,13 @@ export default class DataService {
 
             {
                 id: 'portfolio',
-                name: 'Portfolio.web', // Keeps Portfolio.web intact
+                name: 'Terminal.web', 
                 icon: 'flying_through_space_100',
                 content: {
                     projects: [
                         {
                             title: 'Coming Soon',
-                            description: 'in process.'
+                            description: 'building a terminal.'
                         }
                     ],
                 },
