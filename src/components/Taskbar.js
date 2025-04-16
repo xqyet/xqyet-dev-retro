@@ -17,7 +17,7 @@ function Taskbar({ openApps, setOpenApps }) {
             list={
                 <List>
                     <List.Item className="pointer" icon="brush">
-                        <Link href={react95Repo} target="_blank">Built with React95</Link>
+                        <Link href={react95Repo} target="_blank">React95 Framework</Link>
                     </List.Item>
                     <List.Divider />
                     <List.Item className="pointer" icon="folder_file">

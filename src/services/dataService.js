@@ -29,21 +29,16 @@ export default class DataService {
                             title: 'Price Sensitivity Model',
                             description: 'this project simulates a community of consumers, each with unique Price Sensitivity (PS) that affects their consumption behavior, wealth accumulation, and transaction volume.',
                             repoLink: 'https://github.com/xqyet/macroeconomic-PSModel'
-                        },
-                        {
-                            title: 'Invoice Parser',
-                            description: 'streamlines the process of extracting invoice data such as invoice numbers, customer details, billing addresses, line items, and totals from PDF invoices.',
-                            repoLink: 'https://github.com/xqyet/Invoice-Parser-Framework'
-                        },
-                        {
-                            title: 'Sales Tax Model',
-                            description: 'a real-time model that retrieves sales tax info based on zip-code.',
-                            repoLink: 'https://github.com/xqyet/SalesTaxModel'
-                        },
+                        }, 
                         {
                             title: 'Infinite Seed-Phrase Randomizer',
                             description: 'loops through a near infinite list of seed phrases until the correct one is found.',
                             repoLink: 'https://github.com/xqyet/Infinite-Seed-Phrase-Randomizer_BACKEND'
+                        },
+                        {
+                            title: 'All-In-One HWID Spoofer',
+                            description: 'a C# application that allows you to change various system identifiers like HWID, PC GUID, computer name, product ID, and MAC address.',
+                            repoLink: 'http://xqspoof.me'
                         },
                         {
                             title: 'Blockchain Analytics Model',
@@ -65,11 +60,20 @@ export default class DataService {
                             description: 'a whitehat blockchain tool designed to monitor compromised wallets for incoming transactions.',
                             repoLink: 'https://github.com/xqyet/WalletMonitor'
                         },
-
+                        {
+                            title: 'Sales Tax Model',
+                            description: 'a real-time model that retrieves sales tax info based on zip-code.',
+                            repoLink: 'https://github.com/xqyet/SalesTaxModel'
+                        },
                         {
                             title: 'PathSeeker',
                             description: 'a reimagined and enhanced Minecraft utility mod. - active contributor and developer to PathSeeker, TrouserStreak, Jefff Mod add-ons',
-                            repoLink: 'https://faxhack.github.io/PathSeeker/'
+                            repoLink: 'https://github.com/FaxHack/PathSeeker'
+                        },
+                        {
+                            title: 'Invoice Parser',
+                            description: 'streamlines the process of extracting invoice data such as invoice numbers, customer details, billing addresses, line items, and totals from PDF invoices.',
+                            repoLink: 'https://github.com/xqyet/Invoice-Parser-Framework'
                         },
                         {
                             title: 'NullTrace Utility Add-On',

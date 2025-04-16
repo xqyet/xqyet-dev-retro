@@ -627,12 +627,12 @@ const VideoContainer = styled.div`
     flex-direction: column;
     align-items: center;
     border: 2px solid #c0c0c0;
-    padding-bottom: 5px;
+    padding-bottom: 0px;
 `;
 
 const ProgressBar = styled.div`
     width: ${({ progress }) => progress}%;
-    height: 5px;
+    height: 0px;
     background: red;
     transition: width 0.3s ease-in-out;
 `;
@@ -640,12 +640,13 @@ const ProgressBar = styled.div`
 const ControlsContainer = styled.div`
     display: flex;
     align-items: center;
-    justify-content: space-between;
-    width: 95%;
+    height: 30px;
+    width: 99%;
     padding: 5px;
     background: #222;
     color: white;
     font-size: 12px;
+    margin-top: 0px; // This moves it down
 `;
 
 const VolumeSlider = styled.input`
@@ -715,7 +716,7 @@ function Mp4Player({ closePlayer, isMobile }) {
     return (
         <Modal
             icon="media_video"
-            title="YouTube Player - Live YouTube Shorts"
+            title="Video"
             closeModal={closePlayer}
             style={{
                 left: isMobile ? '5%' : '50%',
@@ -728,7 +729,7 @@ function Mp4Player({ closePlayer, isMobile }) {
                 { name: 'Help', list: [] }
             ]}>
             <Frame
-                bg="white"
+                bg="grey"
                 boxShadow="in"
                 height="100%"
                 padding={10}
