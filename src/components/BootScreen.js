@@ -56,7 +56,17 @@ const TerminalText = styled.pre`
   }
 `;
 
-
+function isInAppBrowserFallback() {
+    const ua = navigator.userAgent || navigator.vendor || window.opera;
+    const knownInApps = /Instagram|FBAN|FBAV|Messenger|Snapchat/i.test(ua);
+    const isLikelyDiscord = (
+        /Mobile/i.test(ua) &&
+        /\bAppleWebKit\b/.test(ua) &&
+        !/Safari/i.test(ua)
+    );
+    const smallViewport = window.innerHeight < 700; // in-app browsers often have short height
+    return knownInApps || isLikelyDiscord || smallViewport;
+}
 
 function getOperatingSystem() {
   const ua = navigator.userAgent;
@@ -79,48 +89,49 @@ function getOperatingSystem() {
 }
 
 function BootScreen({ onComplete }) {
-  const [visible, setVisible] = useState(true);
-  const [output, setOutput] = useState('');
+    const [visible, setVisible] = useState(true);
+    const [output, setOutput] = useState('');
+    const [inApp, setInApp] = useState(false);
 
-  const linesRef = useRef([
-    'User: unknown',
-    'IP: Loading...',
-    `System: ${getOperatingSystem()}`,
-    'Bio Loaded',
-    'Press Enter... '
-  ]);
+    const linesRef = useRef([
+        'User: unknown',
+        'IP: Loading...',
+        `System: ${getOperatingSystem()}`,
+        'Bio Loaded',
+        'Press Enter... '
+    ]);
 
-  const close = () => {
-    setVisible(false);
-    onComplete();
-  };
-
-  useEffect(() => {
-    // Fetch IP
-    fetch('https://api.ipify.org?format=json')
-      .then(res => res.json())
-      .then(data => {
-        linesRef.current[1] = `IP: ${data.ip}`;
-        startTyping(linesRef.current);
-      })
-      .catch(() => {
-        linesRef.current[1] = 'IP: Unable to fetch';
-        startTyping(linesRef.current);
-      });
-
-    // Set up listeners
-    const handleEnter = (e) => {
-      if (e.key === 'Enter') close();
+    const close = () => {
+        setVisible(false);
+        onComplete();
     };
 
-    document.addEventListener('keydown', handleEnter);
-    document.addEventListener('click', close);
+    useEffect(() => {
+        setInApp(isInAppBrowserFallback());
 
-    return () => {
-      document.removeEventListener('keydown', handleEnter);
-      document.removeEventListener('click', close);
-    };
-  }, []);
+        fetch('https://api.ipify.org?format=json')
+            .then(res => res.json())
+            .then(data => {
+                linesRef.current[1] = `IP: ${data.ip}`;
+                startTyping(linesRef.current);
+            })
+            .catch(() => {
+                linesRef.current[1] = 'IP: Unable to fetch';
+                startTyping(linesRef.current);
+            });
+
+        const handleEnter = (e) => {
+            if (e.key === 'Enter') close();
+        };
+
+        document.addEventListener('keydown', handleEnter);
+        document.addEventListener('click', close);
+
+        return () => {
+            document.removeEventListener('keydown', handleEnter);
+            document.removeEventListener('click', close);
+        };
+    }, []);
 
     const PROMPT = 'C:\\Users\\xqyet> ';
 
@@ -157,16 +168,15 @@ function BootScreen({ onComplete }) {
         typeChar();
     };
 
-
-
-  return (
-    <BootScreenWrapper visible={visible}>
-          <TerminalText>
-              {output}
-              <span className="cursor">_</span>
-          </TerminalText>
-    </BootScreenWrapper>
-  );
+    return (
+        <BootScreenWrapper visible={visible}>
+            <TerminalText style={inApp ? { marginTop: '50px' } : undefined}>
+                {output}
+                <span className="cursor">_</span>
+            </TerminalText>
+        </BootScreenWrapper>
+    );
 }
+
 
 export default BootScreen;

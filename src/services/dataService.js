@@ -36,7 +36,7 @@ export default class DataService {
                             repoLink: 'https://github.com/xqyet/Infinite-Seed-Phrase-Randomizer_BACKEND'
                         },
                         {
-                            title: 'All-In-One HWID Spoofer',
+                            title: 'HWID Spoofer',
                             description: 'a C# application that allows you to change various system identifiers like HWID, PC GUID, computer name, product ID, and MAC address.',
                             repoLink: 'http://xqspoof.me'
                         },
